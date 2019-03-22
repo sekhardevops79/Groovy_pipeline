@@ -1,0 +1,27 @@
+def worksapce;
+node
+{
+    stage ('checkout')
+    {
+        checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[cancelProcessOnExternalsFail: true, credentialsId: '', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: 'http://192.168.33.12:8081/subversion/groovy']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
+        workspace =pwd()
+    }
+    stage ('Static code Analysis')
+    {
+        echo "Static code Analysis"
+    }
+     stage('Build The Code')
+     {
+         echo "Build the code"
+     }
+     stage ('Unit Testing')
+     {
+         echo "Unit testing"
+        
+     }
+    stage ('Devlivery the code')
+    {
+        echo "Devlivery the code"
+    }
+    
+}
